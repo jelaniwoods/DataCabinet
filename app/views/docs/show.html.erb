@@ -1,11 +1,17 @@
-<h1>
-<%= @doc.title %>
-</h1>
+<div class="wrapper">
+  <div id="doc_show">
+    <h1 class="title">
+      <%= @doc.title %>
+    </h1>
 
-<p> <%= @doc.context %></p>
+    <p> <%= simple_format(@doc.context) %></p>
+    <div class="buttons">
+      <!-- <%= link_to "All docs", docs_path, class: "button" %> -->
 
-<%= link_to "All docs", docs_path %>
+      <%= link_to "Update Doc", edit_doc_path(@doc), class: "button" %>
+      <%= link_to 'Delete', doc_path(@doc), method: :delete,
+      data: {confirm: "Are you surer?"}, class: "button" %>
 
-<%= link_to "Update Doc", edit_doc_path(@doc) %>
-<%= link_to 'Delete', doc_path(@doc), method: :delete,
-    data: {confirm: "Are you surer?"} %>
+    </div>
+  </div>
+</div>
